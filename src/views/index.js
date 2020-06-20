@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { Text, View, ScrollView } from 'react-native';
 import { styles } from './styles'
 import {Button} from "./components/Button";
+import { PlayerCard } from './components/PlayerCard'
 
 
 export default Home = () => {
@@ -15,31 +16,11 @@ export default Home = () => {
         setp2Life(p2Life + life)
     }
 
+
     return (
         <View style={styles.container}>
-                <View style={styles.lifeContainer1}>
-                    <Button
-                        action={() => changeLifeP2(1)}
-                        label={'+'}
-                    />
-                    <Text style={styles.life}>{p2Life}</Text>
-                    <Button
-                        action={() => changeLifeP2(-1)}
-                        label={'-'}
-                    />
-                </View>
-                <View style={styles.lifeContainer2}>
-                    <Button
-                        action={() => changeLifeP1(1)}
-                        label={'+'}
-                    />
-                    <Text style={styles.life}>{p1Life}</Text>
-                    <Button
-                        action={() => changeLifeP1(-1)}
-                        label={'-'}
-                    />
-                </View>
-
+            <PlayerCard text={p2Life} lifeAction={changeLifeP2} style={styles.lifeContainer1}/>
+            <PlayerCard text={p1Life} lifeAction={changeLifeP1} style={styles.lifeContainer2}/>
         </View>
     )
 }
