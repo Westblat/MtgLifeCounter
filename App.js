@@ -8,18 +8,16 @@
 
 import React from 'react';
 import {
-  View,
-  StatusBar,
+    View,
+    StatusBar,
 } from 'react-native';
 import Home from './src/views'
 
-
-export default function App(props) {
-
+export default function App() {
     return (
-        <View style={{flex: 1}}>
-          <StatusBar barStyle={'light-content'}/>
-          <Home/>
+        <View style={{ flex: 1 }}>
+            <StatusBar barStyle='light-content' />
+            <Home />
         </View>
     );
 }
