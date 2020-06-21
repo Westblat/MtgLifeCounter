@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, ScrollView } from 'react-native';
+import { View } from 'react-native';
 import { styles } from './styles'
 import { PlayerCard } from './components/PlayerCard'
 import { Button } from './components/Button';
@@ -15,7 +15,7 @@ const Home = () => {
         )
     }
     const addPlayer = () => {
-        // There is currently this button for adding players. Only used to
+        // There is currently this button for adding players. Only used to test dynamic styles
         const newPlayer = `p${playerAmount + 1}`
         changePlayerStatus(
             { ...playerStatus, [newPlayer]: { life: 20 } }
