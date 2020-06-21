@@ -1,23 +1,40 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { styles } from './styles'
 import { PlayerCard } from './components/PlayerCard'
+import { Button } from './components/Button';
 
 const Home = () => {
-    const [p1Life, setp1Life] = useState(20)
-    const [p2Life, setp2Life] = useState(20)
+    const [playerStatus, changePlayerStatus] = useState({ p1: { life: 20 }, p2: { life: 20 } })
+    const [playerAmount, changePlayerAmount] = useState(2)
 
-    const changeLifeP1 = (life) => {
-        setp1Life(p1Life + life)
+    const changeLife = (player, life) => {
+        changePlayerStatus(
+            { ...playerStatus,
+                [player]: { life: playerStatus[player].life + life } }
+        )
     }
-    const changeLifeP2 = (life) => {
-        setp2Life(p2Life + life)
+    const addPlayer = () => {
+        // There is currently this button for adding players. Only used to
+        const newPlayer = `p${playerAmount + 1}`
+        changePlayerStatus(
+            { ...playerStatus, [newPlayer]: { life: 20 } }
+        )
+        changePlayerAmount(playerAmount + 1)
     }
-
     return (
         <View style={styles.container}>
-            <PlayerCard text={p2Life} lifeAction={changeLifeP2} style={styles.lifeContainer1} />
-            <PlayerCard text={p1Life} lifeAction={changeLifeP1} style={styles.lifeContainer2} />
+            <Button
+                label='Add player'
+                action={addPlayer} />
+            {Object.keys(playerStatus).map((playerNumber) => (
+                <PlayerCard
+                    key={playerNumber}
+                    player={playerNumber}
+                    text={playerStatus[playerNumber].life}
+                    lifeAction={changeLife}
+                    style={styles.lifeContainer1} />
+            ))}
         </View>
     )
 }
