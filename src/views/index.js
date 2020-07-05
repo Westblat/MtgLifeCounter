@@ -33,6 +33,7 @@ const Home = () => {
                     player={playerNumber}
                     text={playerStatus[playerNumber].life}
                     lifeAction={changeLife}
+                    playerCount={playerAmount}
                     style={styles.lifeContainer1} />
             ))}
         </View>

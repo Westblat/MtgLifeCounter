@@ -3,10 +3,14 @@ import { Text, View } from 'react-native';
 import { styles } from '../styles';
 import { Button } from './Button';
 
-export function PlayerCard({ text, lifeAction, style, player }) {
+export function PlayerCard({ text, lifeAction, style, player, playerCount }) {
+    let cardStyle = styles.lifeContainer2
+    if (parseInt(player.substr(1)) % 2) {
+        cardStyle = styles.lifeContainer1
+    }
     return (
-        <View>
-            <View style={style}>
+        <View style={cardStyle}>
+            <View style={{ flex: 1 }}>
                 <Button
                     action={() => { lifeAction(player, 1) }}
                     label='+'
