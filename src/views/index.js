@@ -5,7 +5,7 @@ import { PlayerCard } from './components/PlayerCard'
 import { Button } from './components/Button';
 
 const Home = () => {
-    const [playerStatus, changePlayerStatus] = useState({ p1: { life: 20 }, p2: { life: 20 },p3: { life: 20 }, p4: { life: 20 }, p5: { life: 20 } })
+    const [playerStatus, changePlayerStatus] = useState({ p1: { life: 20 }, p2: { life: 20 }, p3: { life: 20 }, p4: { life: 20 }, p5: { life: 20 } })
     const [playerAmount, changePlayerAmount] = useState(2)
 
     const changeLife = (player, life) => {
@@ -24,7 +24,8 @@ const Home = () => {
     }
     return (
         <View style={styles.container}>
-            <Button style={{position: 'absolute'}}
+            <Button
+                style={{ position: 'absolute' }}
                 label='Add player'
                 action={addPlayer} />
             <View style={styles.leftContainer}>
@@ -35,7 +36,9 @@ const Home = () => {
                         text={playerStatus[playerNumber].life}
                         lifeAction={changeLife}
                         playerCount={playerAmount}
-                        style={styles.lifeContainer1} />
+                        viewStyle={styles.lifeContainer1}
+                        textStyle={styles.life1}
+                    />
                 ))}
             </View>
             <View style={styles.rightContainer}>
@@ -46,7 +49,9 @@ const Home = () => {
                         text={playerStatus[playerNumber].life}
                         lifeAction={changeLife}
                         playerCount={playerAmount}
-                        style={styles.lifeContainer2} />
+                        viewStyle={styles.lifeContainer2}
+                        textStyle={styles.life2}
+                    />
                 ))}
             </View>
         </View>
