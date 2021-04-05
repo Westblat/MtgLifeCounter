@@ -13,13 +13,10 @@ export const styles = StyleSheet.create({
     },
     lifeLeft: {
         fontSize: 40,
-        transform: [{ rotate: '90deg' }],
-        alignSelf: 'center'
+        // transform: [{ rotate: '90deg' }],
     },
     lifeRight: {
         fontSize: 40,
-        transform: [{ rotate: '270deg' }],
-        alignSelf: 'center'
     },
     lifeContainerLeft: {
         flex: 1,

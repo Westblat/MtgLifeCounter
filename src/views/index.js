@@ -38,6 +38,7 @@ const Home = () => {
                         viewStyle={styles.lifeContainerLeft}
                         textStyle={styles.lifeLeft}
                         backGround={background[playerStatus[player].playerNumber]}
+                        transform={{ transform: [{ rotate: '90deg' }] }}
                     />
                 ))}
             </View>
@@ -52,13 +53,14 @@ const Home = () => {
                         viewStyle={styles.lifeContainerRight}
                         textStyle={styles.lifeRight}
                         backGround={background[playerStatus[player].playerNumber]}
+                        transform={{ transform: [{ rotate: '270deg' }] }}
                     />
                 ))}
             </View>
             <View style={{ position: 'absolute',
                 backgroundColor: 'white',
                 alignSelf: 'center',
-                left: (Dimensions.get('window').width / 2) - 25
+                left: (Dimensions.get('window').width / 2) - 12.5
             }}
             >
                 <Button

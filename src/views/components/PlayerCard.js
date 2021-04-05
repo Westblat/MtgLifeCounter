@@ -3,30 +3,30 @@ import { Text, View } from 'react-native';
 import { Button } from './Button';
 import { styles } from './PlayerCardStyles';
 
-export function PlayerCard({ text, lifeAction, viewStyle, textStyle, player, backGround }) {
+export function PlayerCard({ text, lifeAction, viewStyle, textStyle, player, backGround, transform }) {
     return (
         <View style={{ ...viewStyle, backgroundColor: backGround }}>
-            <View style={styles.asd}>
+            <View style={styles.container}>
                 <Button
                     action={() => { lifeAction(player, 5) }}
                     label='5'
-                    style={textStyle}
+                    style={{ ...textStyle, ...transform }}
                 />
                 <Button
                     action={() => { lifeAction(player, 1) }}
                     label='+'
-                    style={textStyle}
+                    style={{ ...textStyle, ...transform }}
                 />
-                <Text style={textStyle}>{text}</Text>
+                <Text style={{ ...textStyle, ...transform }}>{text}</Text>
                 <Button
                     action={() => { lifeAction(player, -1) }}
                     label='-'
-                    style={textStyle}
+                    style={{ ...textStyle, ...transform }}
                 />
                 <Button
                     action={() => { lifeAction(player, -5) }}
                     label='5'
-                    style={textStyle}
+                    style={{ ...textStyle, ...transform }}
                 />
             </View>
 

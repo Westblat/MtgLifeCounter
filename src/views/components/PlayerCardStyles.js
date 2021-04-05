@@ -1,8 +1,12 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-    asd: {
+    container: {
+        flex: 1,
         flexDirection: 'column',
-        transform: [{ rotate: '90deg' }],
+        height: '100%',
+        padding: 1,
+        justifyContent: 'center',
+        alignSelf: 'center',
     }
 })
