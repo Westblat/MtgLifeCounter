@@ -16,9 +16,6 @@ export function Button({ action, label, style, ...props }) {
 
 const styles = StyleSheet.create({
     container: {
-        marginVertical: 10,
-        marginHorizontal: 20,
-        paddingVertical: 15,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 25,
