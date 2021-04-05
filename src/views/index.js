@@ -4,7 +4,7 @@ import { View, Dimensions } from 'react-native';
 import { styles } from './styles'
 import { PlayerCard } from './components/PlayerCard'
 import { Button } from './components/Button';
-import { PopupModal } from './components/PopupModal';
+import { SettingsModal } from './components/SettingsModal';
 
 const background = [
     'red',
@@ -24,20 +24,7 @@ const Home = () => {
                 [player]: { life: playerStatus[player].life + life } }
         )
     }
-    const addPlayer = () => {
-        const newPlayer = `p${playerAmount + 1}`
-        changePlayerStatus(
-            { ...playerStatus, [newPlayer]: { life: 20 } }
-        )
-        changePlayerAmount(playerAmount + 1)
-    }
-    const removePlayer = () => {
-        const newPlayer = `p${playerAmount}`
-        const newObject = playerStatus
-        delete newObject[newPlayer]
-        changePlayerStatus(newObject)
-        changePlayerAmount(playerAmount - 1)
-    }
+
     return (
         <View style={styles.container}>
             <View style={styles.leftContainer}>
@@ -86,9 +73,12 @@ const Home = () => {
                 justifyContent: 'center',
                 flex: 1,
             }}>
-                <PopupModal
+                <SettingsModal
                     visible={settingsVisible}
-                    buttons={[[addPlayer, 'Add player'], [removePlayer, 'Remove player']]}
+                    changePlayerAmount={changePlayerAmount}
+                    playerAmount={playerAmount}
+                    changePlayerStatus={changePlayerStatus}
+                    playerStatus={playerStatus}
                     closeModal={() => showSettings(!settingsVisible)}
                 />
             </View>
