@@ -6,10 +6,17 @@ import { PlayerCard } from './components/PlayerCard'
 import { Button } from './components/Button';
 import { PopupModal } from './components/PopupModal';
 
+const background = [
+    'red',
+    'blue',
+    'white',
+    'green',
+    'grey',
+]
 const Home = () => {
-    const [playerStatus, changePlayerStatus] = useState({ p1: { life: 20 }, p2: { life: 20 }, p3: { life: 20 }, p4: { life: 20 }, p5: { life: 20 } })
-    const [playerAmount, changePlayerAmount] = useState(2)
-    const [settingsVisible, showSettings] = useState(true)
+    const [playerStatus, changePlayerStatus] = useState({ p1: { life: 20 }, p2: { life: 20 }, p3: { life: 20 }, p4: { life: 20 } })
+    const [playerAmount, changePlayerAmount] = useState(4)
+    const [settingsVisible, showSettings] = useState(false)
 
     const changeLife = (player, life) => {
         changePlayerStatus(
@@ -18,17 +25,23 @@ const Home = () => {
         )
     }
     const addPlayer = () => {
-        // There is currently this button for adding players. Only used to test dynamic styles
         const newPlayer = `p${playerAmount + 1}`
         changePlayerStatus(
             { ...playerStatus, [newPlayer]: { life: 20 } }
         )
         changePlayerAmount(playerAmount + 1)
     }
+    const removePlayer = () => {
+        const newPlayer = `p${playerAmount}`
+        const newObject = playerStatus
+        delete newObject[newPlayer]
+        changePlayerStatus(newObject)
+        changePlayerAmount(playerAmount - 1)
+    }
     return (
         <View style={styles.container}>
             <View style={styles.leftContainer}>
-                {Object.keys(playerStatus).filter((p, i) => !(i % 2)).map((playerNumber) => (
+                {Object.keys(playerStatus).filter((p, i) => !(i % 2)).map((playerNumber, i) => (
                     <PlayerCard
                         key={playerNumber}
                         player={playerNumber}
@@ -75,6 +88,8 @@ const Home = () => {
             }}>
                 <PopupModal
                     visible={settingsVisible}
+                    buttons={[[addPlayer, 'Add player'], [removePlayer, 'Remove player']]}
+                    closeModal={() => showSettings(!settingsVisible)}
                 />
             </View>
         </View>
