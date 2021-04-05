@@ -7,32 +7,35 @@ export const styles = StyleSheet.create({
     },
     leftContainer: {
         flexGrow: 1,
-        backgroundColor: 'red',
     },
     rightContainer: {
-        backgroundColor: 'blue',
         flexGrow: 1,
     },
-    life1: {
+    lifeLeft: {
         fontSize: 40,
         transform: [{ rotate: '90deg' }],
         alignSelf: 'center'
     },
-    life2: {
+    lifeRight: {
         fontSize: 40,
         transform: [{ rotate: '270deg' }],
         alignSelf: 'center'
     },
-    lifeContainer1: {
+    lifeContainerLeft: {
         flex: 1,
         flexDirection: 'column',
         fontSize: 40,
         alignSelf: 'center',
+        borderWidth: 1,
+        width: '100%',
+        height: '100%'
     },
-    lifeContainer2: {
+    lifeContainerRight: {
         flex: 1,
         flexDirection: 'column',
         fontSize: 40,
         alignSelf: 'center',
+        borderWidth: 1,
+        width: '100%'
     },
 })

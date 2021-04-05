@@ -11,7 +11,7 @@ export const SettingsModal = ({ visible, buttons, closeModal, changePlayerStatus
     const addPlayer = () => {
         const newPlayer = `p${playerAmount + 1}`
         changePlayerStatus(
-            { ...playerStatus, [newPlayer]: { life: 20 } }
+            { ...playerStatus, [newPlayer]: { life: 20, playerNumber: playerAmount + 1 } }
         )
         changePlayerAmount(playerAmount + 1)
     }
